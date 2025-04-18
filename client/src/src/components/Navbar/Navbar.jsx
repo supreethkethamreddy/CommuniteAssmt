@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <>
         <nav className="navbar">
-            <div>About Us</div>
+            <div><link href='./cms'></link>About Us</div>
             <div>Services</div>
         </nav>
     </>
