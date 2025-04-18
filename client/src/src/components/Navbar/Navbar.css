@@ -1,0 +1,29 @@
+.navbar {
+    display: flex;
+    height:auto;
+    justify-content:center;
+    align-items: center;
+    padding: 20px 40px;
+    flex-basis: 100px;
+    gap: 50px;
+    font-family: sans-serif;
+}
+
+.navbar div{
+    width:auto;
+}
+
+.admin-link a {
+    background-color: #4a90e2;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.admin-link a:hover {
+    background-color: #357ab8;
+}
+  
