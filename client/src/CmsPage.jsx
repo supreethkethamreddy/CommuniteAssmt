@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './CmsPage.css';
 
-function Cmspage() {
+function CmsPage() {
   const [inputValue, setInputValue] = useState('');
 
   const changeHeader = async (inputValue)=>{
@@ -44,4 +44,4 @@ function Cmspage() {
   );
 }
 
-export default Cmspage;
+export default CmsPage;
