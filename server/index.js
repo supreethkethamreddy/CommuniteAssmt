@@ -14,6 +14,10 @@ app.use(cors({
   methods: ['GET', 'POST', 'OPTIONS'],
   credentials: true // optional, only needed if you're using cookies/auth
 }));
+
+//for localhost
+//app.use(cors());
+
 app.use(express.json());
 
 // In-memory store instead of MongoDB
@@ -27,7 +31,11 @@ console.log('Using in-memory store instead of MongoDB for testing');
 // GET endpoint to retrieve the header content
 app.get('/api/content/header', async (req, res) => {
   try {
-    const value = inMemoryStore.mainHeader;
+    
+    const value = "Karthik Mohan";
+
+    // for localhost
+    // const value = inMemoryStore.mainHeader;
     
     res.json({ value });
   } catch (error) {

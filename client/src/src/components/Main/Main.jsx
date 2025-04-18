@@ -8,9 +8,14 @@ function Main() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+
     const fetchHeaderText = async () => {
       try {
         const response = await axios.get('https://communite-assmt-otis-b9fxcbq87-supreethkethamreddys-projects.vercel.app/api/content/header');
+        
+        //testing with the localhost
+        // const response = await axios.get('http://localhost:5000/api/content/header');
+
         setTitle(response.data.value);
         setIsLoading(false);
       } catch (error) {

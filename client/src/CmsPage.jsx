@@ -7,6 +7,11 @@ function CmsPage() {
   const changeHeader = async (inputValue)=>{
     try {
       const response = await axios.post('https://communite-assmt-otis-b9fxcbq87-supreethkethamreddys-projects.vercel.app/api/content/header',inputValue)
+
+      //for localhost
+      //      const response = await axios.post('http://localhost:5000/api/content/header',inputValue)
+
+
       console.log('Successfully updated:', response.data);
       
     } catch (error) {
