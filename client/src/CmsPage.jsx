@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './SimpleForm.css';
+import './CmsPage.css';
 
 function Cmspage() {
   const [inputValue, setInputValue] = useState('');
