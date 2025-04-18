@@ -11,7 +11,7 @@ function Main() {
 
     const fetchHeaderText = async () => {
       try {
-        const response = await axios.get('https://communite-assmt-otis-b9fxcbq87-supreethkethamreddys-projects.vercel.app/api/content/header');
+        const response = await axios.get('https://server-lime-xi.vercel.app/api/content/header');
         
         //testing with the localhost
         // const response = await axios.get('http://localhost:5000/api/content/header');

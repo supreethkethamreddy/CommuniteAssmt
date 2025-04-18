@@ -10,10 +10,12 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: 'https://communite-assmt.vercel.app',
+  origin: 'https://client-dusky-five-20.vercel.app',
   methods: ['GET', 'POST', 'OPTIONS'],
-  credentials: true // optional, only needed if you're using cookies/auth
 }));
+
+// Optional: Preflight request support
+app.options('*', cors());
 
 //for localhost
 //app.use(cors());
@@ -31,7 +33,7 @@ console.log('Using in-memory store instead of MongoDB for testing');
 // GET endpoint to retrieve the header content
 app.get('/api/content/header', async (req, res) => {
   try {
-    
+
     const value = "Karthik Mohan";
 
     // for localhost
