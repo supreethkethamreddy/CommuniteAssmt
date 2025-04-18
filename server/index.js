@@ -9,16 +9,16 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors({
-  origin: 'https://client-dusky-five-20.vercel.app',
-  methods: ['GET', 'POST', 'OPTIONS'],
-}));
+// app.use(cors({
+//   origin: 'https://client-dusky-five-20.vercel.app',
+//   methods: ['GET', 'POST', 'OPTIONS'],
+// }));
 
 // Optional: Preflight request support
-app.options('*', cors());
+// app.options('*', cors());
 
 //for localhost
-//app.use(cors());
+app.use(cors());
 
 app.use(express.json());
 
@@ -34,10 +34,10 @@ console.log('Using in-memory store instead of MongoDB for testing');
 app.get('/api/content/header', async (req, res) => {
   try {
 
-    const value = "Karthik Mohan";
+    // const value = "Karthik Mohan";
 
     // for localhost
-    // const value = inMemoryStore.mainHeader;
+    const value = inMemoryStore.mainHeader;
     
     res.json({ value });
   } catch (error) {
@@ -48,17 +48,22 @@ app.get('/api/content/header', async (req, res) => {
 
 // POST endpoint to update header content
 app.post('/api/content/header', async (req, res) => {
+
+  console.log(req.body);
   try {
-    const { value } = req.body;
+    const { content } = req.body;
+    console.log(content)
     
-    if (!value) {
+    if (!content) {
       return res.status(400).json({ error: 'Header content is required' });
     }
     
-    // Update in-memory store
-    inMemoryStore.mainHeader = value;
     
-    res.json({ value, lastUpdated: new Date() });
+
+    // Update in-memory store
+    inMemoryStore.mainHeader = content;
+    
+    res.json({ content, lastUpdated: new Date() });
   } catch (error) {
     console.error('Error updating header content:', error);
     res.status(500).json({ error: 'Server error' });

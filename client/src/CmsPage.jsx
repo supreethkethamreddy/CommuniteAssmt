@@ -1,28 +1,29 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './CmsPage.css';
 
 function CmsPage() {
   const [inputValue, setInputValue] = useState('');
 
-  const changeHeader = async (inputValue)=>{
+  const changeHeader = async (inputVal) => {
     try {
-      const response = await axios.post('https://communite-assmt-otis-b9fxcbq87-supreethkethamreddys-projects.vercel.app/api/content/header',inputValue)
+      console.log(inputVal);
 
-      //for localhost
-      //      const response = await axios.post('http://localhost:5000/api/content/header',inputValue)
-
+      // Localhost
+      const response = await axios.post('http://localhost:5000/api/content/header', {
+        content: inputVal,  // Adjust "content" to match your backend schema
+      });
 
       console.log('Successfully updated:', response.data);
-      
     } catch (error) {
       console.error('Failed to update:', error);
     }
-  }
+  };
 
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     alert(`Submitted: ${inputValue}`);
+    await changeHeader(inputValue);
     setInputValue('');
   };
 
@@ -41,7 +42,7 @@ function CmsPage() {
           placeholder="Type something..."
           required
         />
-        <button type="submit" className="form-button" onClick={()=>changeHeader}>
+        <button type="submit" className="form-button">
           Submit
         </button>
       </div>

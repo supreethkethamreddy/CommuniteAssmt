@@ -11,10 +11,11 @@ function Main() {
 
     const fetchHeaderText = async () => {
       try {
-        const response = await axios.get('https://server-lime-xi.vercel.app/api/content/header');
+        //trying deployment
+        //const response = await axios.get('https://server-lime-xi.vercel.app/api/content/header');
         
         //testing with the localhost
-        // const response = await axios.get('http://localhost:5000/api/content/header');
+         const response = await axios.get('http://localhost:5000/api/content/header');
 
         setTitle(response.data.value);
         setIsLoading(false);
