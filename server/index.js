@@ -9,7 +9,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://communite-assmt.vercel.app',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  credentials: true // optional, only needed if you're using cookies/auth
+}));
 app.use(express.json());
 
 // In-memory store instead of MongoDB
